@@ -1,4 +1,4 @@
-package main
+package tictactoe
 
 type Player int
 
@@ -14,6 +14,6 @@ func (p Player) String() string {
 	case PlayerO:
 		return "O"
 	default:
-		return " "
+		return ""
 	}
 }

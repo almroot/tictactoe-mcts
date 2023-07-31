@@ -1,27 +1,13 @@
-package main
+package tictactoe
 
-import (
-	"git.sr.ht/~bonbon/gmcts"
-)
-
-type Game struct {
-	board      *Board
-	playerTurn Player
-}
-
-func NewGame(startingPlayer Player) *Game {
-	return &Game{
-		board:      NewBoard(),
-		playerTurn: startingPlayer,
-	}
-}
+import "git.sr.ht/~bonbon/gmcts"
 
 func (g *Game) GetActions() []gmcts.Action {
 	var output []gmcts.Action
 	for x, row := range g.board.Get() {
 		for y, cell := range row {
 			if cell == 0 {
-				output = append(output, NewAction(g.playerTurn, x, y))
+				output = append(output, NewAction(g.actors[g.turn].Player, x, y))
 			}
 		}
 	}
@@ -33,20 +19,18 @@ func (g *Game) ApplyAction(action gmcts.Action) (gmcts.Game, error) {
 	if err := board.Set(action.(*Action).Player, action.(*Action).X, action.(*Action).Y); err != nil {
 		return nil, err
 	}
-	var newPlayerTurn Player
-	if g.playerTurn == PlayerX {
-		newPlayerTurn = PlayerO
-	} else {
-		newPlayerTurn = PlayerX
-	}
+	var nextTurn = g.turn + 1
+	nextTurn = nextTurn % len(g.actors)
 	return &Game{
-		board:      board,
-		playerTurn: newPlayerTurn,
+		history: g.history,
+		board:   board,
+		actors:  g.actors,
+		turn:    nextTurn,
 	}, nil
 }
 
 func (g *Game) Player() gmcts.Player {
-	return gmcts.Player(g.playerTurn)
+	return gmcts.Player(g.actors[g.turn].Player)
 }
 
 func (g *Game) IsTerminal() bool {

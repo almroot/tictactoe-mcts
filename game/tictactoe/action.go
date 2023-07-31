@@ -1,4 +1,4 @@
-package main
+package tictactoe
 
 type Action struct {
 	Player Player
