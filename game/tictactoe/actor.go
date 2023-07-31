@@ -27,7 +27,7 @@ func NewActorAI(history history.History, player Player, ephemeral func(message s
 			history.Ephemeral(player.String(), "thinking...", ephemeral)
 			var wait sync.WaitGroup
 			mcts := gmcts.NewMCTS(game)
-			start := time.Now().UnixMilli()
+			start := time.Now()
 			ctr := 0
 			wait.Add(concurrency)
 			for i := 0; i < concurrency; i++ {
@@ -44,11 +44,11 @@ func NewActorAI(history history.History, player Player, ephemeral func(message s
 			history.Report(
 				player.String(),
 				fmt.Sprintf(
-					"%dx%d (explored %v nodes in %vms)",
+					"%dx%d (explored %v nodes in %s)",
 					result.(*Action).X+1,
 					result.(*Action).Y+1,
 					ctr,
-					time.Now().UnixMilli()-start,
+					time.Since(start).String(),
 				),
 			)
 			return result, nil
