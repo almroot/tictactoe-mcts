@@ -13,7 +13,7 @@ Usage:
 
 Application Options:
   -s, --seed=            The RNG seed used by MCTS (default: 1690791430501)
-  -t, --timeout=         The maximum amount of time the MCTS algorithm may take per action (default: 1s)
+  -t, --timeout=         The maximum amount of time the MCTS algorithm may take per action (default: 200ms)
   -p, --parallelization= The amount of parallel goroutines to execute for the MCTS algorithm (default: 4)
 
 Help Options:

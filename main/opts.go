@@ -17,7 +17,7 @@ type Options struct {
 func NewOptions() *Options {
 	return &Options{
 		Seed:            time.Now().UnixMilli(),
-		Timeout:         time.Second,
+		Timeout:         time.Millisecond * 200,
 		Parallelization: 4,
 	}
 }

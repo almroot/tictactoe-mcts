@@ -70,20 +70,20 @@ func NewActorHuman(history history.History, player Player, ephemeral func(messag
 				const msg = "invalid command"
 				return nil, errors.New(msg)
 			}
-			horizontal, vertical, _ := strings.Cut(line, "x")
-			y, _ := strconv.Atoi(horizontal)
-			x, _ := strconv.Atoi(vertical)
-			x--
-			y--
+			val2, val1, _ := strings.Cut(line, "x")
+			pos2, _ := strconv.Atoi(val2)
+			pos2--
+			pos1, _ := strconv.Atoi(val1)
+			pos1--
 			for _, a := range legalActions {
-				if a.(*Action).X == x && a.(*Action).Y == y && a.(*Action).Player == Player(game.Player()) {
-					bestAction = NewAction(Player(game.Player()), x, y)
+				if a.(*Action).X == pos1 && a.(*Action).Y == pos2 && a.(*Action).Player == Player(game.Player()) {
+					bestAction = NewAction(Player(game.Player()), pos1, pos2)
 				}
 			}
 			if bestAction != nil {
 				return bestAction, nil
 			}
-			return nil, errors.New("invalid move")
+			return nil, errors.New("illegal move")
 		},
 	}
 }
