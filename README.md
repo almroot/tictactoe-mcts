@@ -1,6 +1,6 @@
 # tictactoe-mcts
 
-This is a private experiment for me familiarize myself with the [Monte Carlo Tree Search (MCTS)](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) algorithm. It is used to power the opponent in a game of tic-tac-toe.
+This is an experiment using the [Monte Carlo Tree Search (MCTS)](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) algorithm. It is used to power the opponent in a game of tic-tac-toe.
 
 ## Command Line
 
