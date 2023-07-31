@@ -1,4 +1,4 @@
-module tictactoe-mcts
+module github.com/almroot/tictactoe-mcts
 
 go 1.20
 

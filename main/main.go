@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"tictactoe-mcts/game"
-	"tictactoe-mcts/game/tictactoe"
-	"tictactoe-mcts/history/general"
+
+	"github.com/almroot/tictactoe-mcts/game"
+	"github.com/almroot/tictactoe-mcts/game/tictactoe"
+	"github.com/almroot/tictactoe-mcts/history/general"
 )
 
 func main() {

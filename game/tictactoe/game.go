@@ -3,8 +3,9 @@ package tictactoe
 import (
 	"errors"
 	"fmt"
-	"tictactoe-mcts/game"
-	"tictactoe-mcts/history"
+
+	"github.com/almroot/tictactoe-mcts/game"
+	"github.com/almroot/tictactoe-mcts/history"
 
 	"git.sr.ht/~bonbon/gmcts"
 	"github.com/inancgumus/screen"

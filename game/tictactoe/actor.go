@@ -8,8 +8,9 @@ import (
 	"strconv"
 	"strings"
 	"sync"
-	"tictactoe-mcts/history"
 	"time"
+
+	"github.com/almroot/tictactoe-mcts/history"
 
 	"git.sr.ht/~bonbon/gmcts"
 )
