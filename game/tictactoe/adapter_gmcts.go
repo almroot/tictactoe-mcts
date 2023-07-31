@@ -19,13 +19,11 @@ func (g *Game) ApplyAction(action gmcts.Action) (gmcts.Game, error) {
 	if err := board.Set(action.(*Action).Player, action.(*Action).X, action.(*Action).Y); err != nil {
 		return nil, err
 	}
-	var nextTurn = g.turn + 1
-	nextTurn = nextTurn % len(g.actors)
 	return &Game{
 		history: g.history,
 		board:   board,
 		actors:  g.actors,
-		turn:    nextTurn,
+		turn:    (g.turn + 1) % len(g.actors),
 	}, nil
 }
 
