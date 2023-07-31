@@ -2,12 +2,20 @@
 
 This is an experiment using the [Monte Carlo Tree Search (MCTS)](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) algorithm. It is used to power the opponent in a game of tic-tac-toe.
 
+## Compilation
+
+To build the project, run:
+
+```
+$ go build -o bin/tictactoe-mcts-linux-amd64 ./main
+```
+
 ## Command Line
 
 These are the supported command line options:
 
 ```
-$ ./tictactoe-mcts-linux-amd64 --help
+$ ./bin/tictactoe-mcts-linux-amd64 --help
 Usage:
   tictactoe-mcts-linux-amd64 [OPTIONS]
 
